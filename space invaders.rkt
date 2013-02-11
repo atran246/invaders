@@ -59,7 +59,14 @@
 
 ; ShotWorld -> ShotWorld 
 (define (main w0)
-  (big-bang w0
+  (big-bang w0  
             (on-tick tock)
             (on-key keyh)
             (to-draw to-image)))
+
+
+; Main takes a list of Y values for shots then creates a world in which 
+; every tick the y values are increased by 1, adds another shot into the world
+; when a key is pressed, and draws the world on the screen.
+
+
