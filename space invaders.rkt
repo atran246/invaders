@@ -35,7 +35,19 @@
 (define (tock w)
   (cond
     [(empty? w) empty]
+    [(above? (first w )) (tock (rest w))]
     [else (cons (sub1 (first w)) (tock (rest w)))]))
+
+; Number -> Number
+; to determine whether a shot is above the canvas or not
+(check-expect (above? 2) false)
+(check-expect (above? -2) true)
+(define (above? n)
+  (cond
+    [(< n 0) true]
+    [else false]))
+   
+    
 
 ; ShotWorld KeyEvent -> ShotWorld 
 ; add a shot to the world if the space bar was hit 
